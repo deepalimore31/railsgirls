@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141213084506) do
+ActiveRecord::Schema.define(version: 20141213113429) do
 
   create_table "companies", force: true do |t|
     t.string   "name"
@@ -19,6 +19,34 @@ ActiveRecord::Schema.define(version: 20141213084506) do
     t.string   "picture"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "products", force: true do |t|
+    t.string   "name"
+    t.text     "display"
+    t.string   "picture"
+    t.string   "camera"
+    t.string   "memory"
+    t.text     "features"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "company_id"
+  end
+
+  create_table "products_users", force: true do |t|
+    t.integer  "product_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.text     "addr"
+    t.string   "mbno"
+    t.string   "emailid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
